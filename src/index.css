@@ -1,13 +1,52 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&family=Rubik+Vinyl&display=swap');
+@keyframes zoom {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.10, 1.10);
+  }
+  100% {
+    transform: scale(1, 1);
+  }}
+
+body{ 
+  background-repeat: no-repeat;
+  background-size: 120%;
+  background-color: #030303;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-image: url('./imgs/starwarpic.jpg');
+  /* animation: zoom 25s linear infinite; */
+ 
+}
+.App{
+  animation: zoom 25s linear infinite;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.PlanetData{
+  height: 90px;
+  width: 230px;
+  padding: 40px;
+  color: #F0ECE8;
+  border: 3px solid #2ae5f3;
+  border-radius: 10px;
+  color:yellow;
+  align-content:flex-end;
+}
+h1{
+  color:yellow;
+  font-family: 'Rubik', cursive;
+  text-align: center;
+}
+.Planets{
+  display:flex;
+  flex-direction: row;
+  flex-flow:wrap;
+  justify-content:space-evenly;
+  flex-flow:center ;
+font-family: 'Rubik Spray Paint', cursive;
+  background-position: bottom right;
+
+  height: 100vh;
 }

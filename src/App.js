@@ -1,25 +1,53 @@
-import logo from './logo.svg';
+import {useState, useEffect} from 'react';
 import './App.css';
+import {PlanetData} from "./components/PlanetData";
+import {getAllPlanetData} from "./components/PlanetDisplay";
 
-function App() {
+ function App() {
+
+  const [planetData, setPlanetData] = useState({
+    count: null,
+    next: null,
+    previous: null,
+    results: [],
+  });
+
+
+  const results = planetData.results
+// use effect is a react hook 
+async function makeApiCall(url) {
+  const planetData = await getAllPlanetData(url);
+  setPlanetData(planetData)
+};
+    useEffect(() => {
+    makeApiCall();
+
+  }, []);
   return (
+    console.log({results}),
+
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>
+        Planet Destroying StarShips
+      </h1>
+   <div className="Planets">
+     {
+      results.map((Planet, idx) => 
+
+    <PlanetData 
+    {...Planet}
+    key={idx} 
+    cost={Planet.cost_in_credits}
+    />
+    
+      )}
+      </div>
     </div>
   );
 }
+
+
+
 
 export default App;
